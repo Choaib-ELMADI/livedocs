@@ -44,6 +44,7 @@
 // 						width={20}
 // 						height={20}
 // 						className="mt-1"
+//                      draggable="false"
 // 					/>
 // 				</Button>
 // 			</DialogTrigger>
@@ -55,6 +56,7 @@
 // 						width={48}
 // 						height={48}
 // 						className="mb-4"
+//                      draggable="false"
 // 					/>
 // 					<DialogTitle>Delete document</DialogTitle>
 // 					<DialogDescription>

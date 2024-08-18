@@ -34,6 +34,7 @@
 // 					alt="inbox"
 // 					width={24}
 // 					height={24}
+//                  draggable="false"
 // 				/>
 // 				{count > 0 && (
 // 					<div className="absolute right-2 top-2 z-20 size-2 rounded-full bg-blue-500" />
@@ -94,6 +95,7 @@
 // 																height={36}
 // 																alt="avatar"
 // 																className="rounded-full"
+//                                                              draggable="false"
 // 															/>
 // 														</InboxNotification.Icon>
 // 													}

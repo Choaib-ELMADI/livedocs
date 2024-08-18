@@ -10,6 +10,7 @@ const Loader = () => {
 				width={32}
 				height={32}
 				className="animate-spin"
+				draggable="false"
 			/>
 			Loading...
 		</div>
