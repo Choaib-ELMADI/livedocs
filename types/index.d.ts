@@ -3,6 +3,11 @@ declare type HeaderProps = {
 	className?: string;
 };
 
+declare type CreateDocumentParams = {
+	userId: string;
+	email: string;
+};
+
 declare type SearchParamProps = {
 	params: { [key: string]: string };
 	searchParams: { [key: string]: string | string[] | undefined };
@@ -18,11 +23,6 @@ declare type RoomMetadata = {
 	creatorId: string;
 	email: string;
 	title: string;
-};
-
-declare type CreateDocumentParams = {
-	userId: string;
-	email: string;
 };
 
 declare type User = {
