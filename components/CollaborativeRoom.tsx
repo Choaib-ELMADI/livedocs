@@ -9,7 +9,7 @@ import React from "react";
 
 const CollaborativeRoom = () => {
 	return (
-		<RoomProvider id="my-room">
+		<RoomProvider id="id">
 			<ClientSideSuspense fallback={<Loader />}>
 				<div className="collaborative-room">
 					<Header>
