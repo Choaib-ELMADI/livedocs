@@ -1,6 +1,7 @@
 import { Inter as FontSans } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import Provider from "./Provider";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import React from "react";
@@ -36,7 +37,7 @@ export default function RootLayout({
 						fontSans.variable
 					)}
 				>
-					{children}
+					<Provider>{children}</Provider>
 				</body>
 			</html>
 		</ClerkProvider>
