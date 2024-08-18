@@ -92,7 +92,7 @@
     }
 
     .header {
-        @apply min-h-[92px] min-w-full flex-nowrap bg-dark-100 flex w-full items-center justify-between gap-2 px-4;
+        @apply min-w-full flex-nowrap bg-dark-100 flex w-full items-center justify-between gap-2 px-4 py-2;
     }
 
     .document-list-container {
@@ -108,7 +108,7 @@
     }
 
     .document-list-empty {
-        @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
+        @apply flex w-[calc(100%_-_2rem)] mb-[1rem] max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
     }
 
     .document-title-input {
@@ -153,12 +153,12 @@
 
     /* ======================== Auth Pages */
     .auth-page {
-        @apply flex h-screen w-full flex-col items-center justify-center gap-10;
+        @apply flex min-h-screen w-full flex-col items-center justify-center p-4;
     }
 
     /* ======================== Home Page */
     .home-container {
-        @apply relative flex min-h-screen w-full flex-col items-center gap-5 sm:gap-10;
+        @apply relative flex min-h-screen w-full flex-col items-center gap-2 sm:gap-5;
     }
 
     .document-ul {
