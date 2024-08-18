@@ -8,6 +8,11 @@ declare type CreateDocumentParams = {
 	email: string;
 };
 
+declare type AddDocumentBtnProps = {
+	userId: string;
+	email: string;
+};
+
 declare type SearchParamProps = {
 	params: { [key: string]: string };
 	searchParams: { [key: string]: string | string[] | undefined };
@@ -67,11 +72,6 @@ declare type CollaborativeRoomProps = {
 	roomMetadata: RoomMetadata;
 	users: User[];
 	currentUserType: UserType;
-};
-
-declare type AddDocumentBtnProps = {
-	userId: string;
-	email: string;
 };
 
 declare type DeleteModalProps = { roomId: string };
