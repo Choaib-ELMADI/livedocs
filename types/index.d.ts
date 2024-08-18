@@ -1,4 +1,8 @@
-/* eslint-disable no-unused-vars */
+declare type HeaderProps = {
+	children: React.ReactNode;
+	className?: string;
+};
+
 declare type SearchParamProps = {
 	params: { [key: string]: string };
 	searchParams: { [key: string]: string | string[] | undefined };
@@ -48,11 +52,6 @@ declare type ShareDocumentDialogProps = {
 	collaborators: User[];
 	creatorId: string;
 	currentUserType: UserType;
-};
-
-declare type HeaderProps = {
-	children: React.ReactNode;
-	className?: string;
 };
 
 declare type CollaboratorProps = {
