@@ -18,11 +18,12 @@ declare type SearchParamProps = {
 	searchParams: { [key: string]: string | string[] | undefined };
 };
 
-declare type AccessType = ["room:write"] | ["room:read", "room:presence:write"];
-
-declare type RoomAccesses = Record<string, AccessType>;
-
-declare type UserType = "creator" | "editor" | "viewer";
+declare type CollaborativeRoomProps = {
+	roomId: string;
+	roomMetadata: RoomMetadata;
+	users: User[];
+	currentUserType: UserType;
+};
 
 declare type RoomMetadata = {
 	creatorId: string;
@@ -38,6 +39,12 @@ declare type User = {
 	color: string;
 	userType?: UserType;
 };
+
+declare type UserType = "creator" | "editor" | "viewer";
+
+declare type AccessType = ["room:write"] | ["room:read", "room:presence:write"];
+
+declare type RoomAccesses = Record<string, AccessType>;
 
 declare type ShareDocumentParams = {
 	roomId: string;
@@ -65,13 +72,6 @@ declare type CollaboratorProps = {
 	creatorId: string;
 	collaborator: User;
 	user: User;
-};
-
-declare type CollaborativeRoomProps = {
-	roomId: string;
-	roomMetadata: RoomMetadata;
-	users: User[];
-	currentUserType: UserType;
 };
 
 declare type DeleteModalProps = { roomId: string };
