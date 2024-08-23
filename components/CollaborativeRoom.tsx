@@ -2,10 +2,10 @@
 
 import { RoomProvider, ClientSideSuspense } from "@liveblocks/react/suspense";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { updateDocument } from "@/lib/actions/room.actions";
+import React, { useEffect, useRef, useState } from "react";
 import ActiveCollaborators from "./ActiveCollaborators";
-import React, { useRef, useState } from "react";
 import { Editor } from "./editor/Editor";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import Image from "next/image";
 import Header from "./Header";
@@ -24,7 +24,56 @@ const CollaborativeRoom = ({
 	const containerRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	const updateTitleHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {};
+	useEffect(() => {
+		const handleClickOutside = (e: MouseEvent) => {
+			if (
+				containerRef.current &&
+				!containerRef.current.contains(e.target as Node)
+			) {
+				setIsEditing(false);
+				if (documentTitle) {
+					updateDocument({ roomId, title: documentTitle });
+				}
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [roomId, documentTitle]);
+
+	useEffect(() => {
+		if (isEditing && inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [isEditing]);
+
+	const updateTitleHandler = async (
+		e: React.KeyboardEvent<HTMLInputElement>
+	) => {
+		if (e.key === "Enter") {
+			setIsLoading(true);
+
+			try {
+				if (documentTitle && documentTitle !== roomMetadata.title) {
+					const updatedDocument = await updateDocument({
+						roomId,
+						title: documentTitle,
+					});
+
+					if (updatedDocument) {
+						setIsEditing(false);
+					}
+				}
+			} catch (error) {
+				console.log(`Error occured while updating the title: ${error}`);
+			}
+
+			setIsLoading(false);
+		}
+	};
 
 	return (
 		<RoomProvider id={roomId}>
