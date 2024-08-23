@@ -167,7 +167,7 @@
 
     /* ======================== CollaborativeRoom */
     .collaborative-room {
-        @apply flex size-full max-h-screen flex-1 flex-col items-center overflow-hidden;
+        @apply flex flex-col items-center size-full min-h-screen flex-1 overflow-hidden;
     }
 }
 
